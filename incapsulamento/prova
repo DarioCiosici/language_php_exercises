@@ -1,0 +1,32 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+include 'computer.php';
+$cpu;$ram;$hdd;
+$computers=[];
+for($i=0;$i<5;$i++)
+{
+echo "Inserisci la cpu";
+$cpu=readline();
+echo "Inserisci la ram";
+$ram=readline();
+echo "Inserisci la hdd";
+$hdd=readline();
+$computer = new computer($cpu,$hdd,$ram);
+
+$computers[$i]=$computer;
+
+}
+$hdd=$computers[0]->getHdd();
+for($i=0;$i<5;$i++)
+{
+   if($hdd<$computers[$i]->getHdd())
+    {
+        $hdd=$computers[$i]->getHdd();
+    }
+}
+echo "Il computer con più hdd ha :{$hdd}";
